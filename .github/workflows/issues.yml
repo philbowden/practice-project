@@ -1,10 +1,8 @@
-name: Trigger on Issues
-on: 
-    issues:
-        types: [opened]
+name: Handle issues
+on: issues
 jobs: 
-    specific_review_requested:
+    output-info:
         runs-on: ubuntu-latest
-        steps:
-          - name: Output GitHub context
-            run: echo "${{ toJSON(github) }}"
+        steps: 
+          - name: Output event details
+            run: echo "${{ toJSON(github.event) }}"

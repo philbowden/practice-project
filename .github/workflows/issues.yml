@@ -1,0 +1,10 @@
+name: Trigger on Issues
+on: 
+    issues:
+        types: [opened]
+jobs: 
+    specific_review_requested:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Output GitHub context
+            run: echo "${{ toJSON(github) }}"
